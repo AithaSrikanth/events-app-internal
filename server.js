@@ -65,16 +65,16 @@ app.get('/events', (req, res) => {
 app.post('/event', (req, res) => {
     // create a new object from the json data and add an id
 // create a new object from the json data and add an id
-const ev = { 
-    title: req.body.title, 
-    description: req.body.description,
-    createdate :req.body.createdate,
-    id : mockEvents.events.length + 1
- }
-// this will create the Events collection if it does not exist
-firestore.collection("Events").add(ev).then(ret => {
-    getEvents(req, res);
-});
+    const ev = { 
+        title: req.body.title, 
+        description: req.body.description,
+        createdate :req.body.createdate,
+        id : mockEvents.events.length + 1
+    }
+    // this will create the Events collection if it does not exist
+    firestore.collection("Events").add(ev).then(ret => {
+        getEvents(req, res);
+    });
 
 });
 
